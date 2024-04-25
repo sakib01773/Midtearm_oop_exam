@@ -37,6 +37,7 @@ class Hall(Star_Cinema):
         self.seats[id] = seats
 
 
+
     def book_seats(self, id, seats):
         if id in self.seats:
             for seat in seats:
@@ -91,12 +92,6 @@ hall = Hall(3,3,1)
 hall.entry_show('1', "Singam", "12:00")
 hall.entry_show('2', "Jawan", "2:00")
 
-
-hall.view_show_list()
-hall.book_seats('1',[(0, 1)])
-print(hall.seats)
-hall.book_seats('1',[(0, 1)])
-hall.view_available_seats('1')
 counter1 = Counter(hall)
 
 run = True
@@ -115,7 +110,11 @@ while run:
         counter1.view_available_seats_in_show(id)
     elif ch == "3":
         show_id = input("Enter the show ID: ")
-        seat_list =(input("Enter the seat Numer as row and colum(e.g: [(0,2)]) : "))
+        print("Enter Seat row: ")
+        row=int(input())
+        print("Enter Seat column: ")
+        col=int(input())
+        seat_list =[(row,col)]
         counter1.book_tickets(show_id, seat_list)
     elif ch == "4":
         print("Exiting...")
